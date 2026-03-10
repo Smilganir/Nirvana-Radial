@@ -9,6 +9,20 @@
 </head>
 <body>
     <div id="chart-container"></div>
+
+    <!-- YouTube modal: thumbnail + link (embed often blocked by video owner) -->
+    <div id="youtube-modal" class="modal" aria-hidden="true">
+        <div class="modal-overlay"></div>
+        <div class="modal-panel">
+            <button type="button" class="modal-close" aria-label="Close">&times;</button>
+            <h3 class="modal-title"></h3>
+            <a id="youtube-thumb-link" class="modal-thumb-wrap" href="#" target="_blank" rel="noopener">
+                <img id="youtube-thumb" class="modal-thumb" src="" alt="" />
+                <span class="modal-play-btn" aria-hidden="true">▶ Play on YouTube</span>
+            </a>
+        </div>
+    </div>
+
     <script src="js/main.js"></script>
 </body>
 </html>

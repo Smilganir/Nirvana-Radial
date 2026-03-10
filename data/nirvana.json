@@ -1,12 +1,12 @@
 [
-    {"song": "Smells Like Teen Spirit", "streams": 2.77},
-    {"song": "Come As You Are", "streams": 1.94},
-    {"song": "Heart-Shaped Box", "streams": 1.06},
-    {"song": "Lithium", "streams": 0.81},
-    {"song": "The Man Who Sold The World", "streams": 0.72},
-    {"song": "About a Girl", "streams": 0.64},
-    {"song": "In Bloom", "streams": 0.47},
-    {"song": "Dumb", "streams": 0.42},
-    {"song": "All Apologies", "streams": 0.37},
-    {"song": "Scentless Apprentice", "streams": 0.05}
-  ]
+    {"song": "Smells Like Teen Spirit", "streams": 2.77, "videoId": "hTWKbfoikeg"},
+    {"song": "Come As You Are", "streams": 1.94, "videoId": "vabnZ9-ex7o"},
+    {"song": "Heart-Shaped Box", "streams": 1.06, "videoId": "n6P0SitRwy8"},
+    {"song": "Lithium", "streams": 0.81, "videoId": "0VW_bfN_BQk"},
+    {"song": "The Man Who Sold The World", "streams": 0.72, "videoId": "fregObNcHC8"},
+    {"song": "About a Girl", "streams": 0.64, "videoId": "4z2DtNW79sQ"},
+    {"song": "In Bloom", "streams": 0.47, "videoId": "PbgKEjNBHqM"},
+    {"song": "Dumb", "streams": 0.42, "videoId": "1V4bP8KFD0E"},
+    {"song": "All Apologies", "streams": 0.37, "videoId": "1uG5zF0lN6c"},
+    {"song": "Scentless Apprentice", "streams": 0.05, "videoId": "KzJjQDfk2Ik"}
+]

@@ -12,3 +12,108 @@ body {
 svg {
     overflow: visible;
 }
+
+/* YouTube modal – dark theme */
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.modal.is-open {
+    pointer-events: auto;
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    cursor: pointer;
+}
+
+.modal-panel {
+    position: relative;
+    width: 100%;
+    max-width: 560px;
+    background-color: #222;
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 1rem 1rem 1.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.modal-close {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    border: none;
+    background: #333;
+    color: #ddd;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.modal-close:hover {
+    background: #444;
+    color: #f0f0f0;
+}
+
+.modal-title {
+    margin: 0 0 0.75rem;
+    padding-right: 2.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #f0f0f0;
+}
+
+.modal-thumb-wrap {
+    display: block;
+    position: relative;
+    width: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #111;
+    text-decoration: none;
+    color: inherit;
+}
+
+.modal-thumb {
+    display: block;
+    width: 100%;
+    height: auto;
+    vertical-align: top;
+}
+
+.modal-play-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: #c4302b;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+}
+.modal-thumb-wrap:hover .modal-play-btn {
+    background: #e04a44;
+}

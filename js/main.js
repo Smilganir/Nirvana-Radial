@@ -58,8 +58,8 @@ d3.json("data/nirvana.json").then(data => {
             .padRadius(40)
         );
 
-    // 5. Labels (FIXED ROTATION)
-    svg.append("g")
+    // 5. Labels (FIXED ROTATION) – clickable
+    const labelGroups = svg.append("g")
         .selectAll("g")
         .data(data)
         .join("g")
@@ -69,13 +69,64 @@ d3.json("data/nirvana.json").then(data => {
             const outerR = radiusScale(d.streams) + 10;
             return `rotate(${angle}) translate(${outerR},0) ${angle > 90 ? "rotate(180)" : ""}`;
         })
-        .append("text")
+        .style("cursor", "pointer");
+
+    labelGroups.append("text")
         .text(d => d.song)
         .attr("transform", d => (angleScale(d.song) + angleScale.bandwidth() / 2 + Math.PI) % (2 * Math.PI) < Math.PI ? "rotate(180)" : "")
         .style("font-size", "11px")
         .style("fill", "#ddd")
         .style("font-family", "Arial, sans-serif")
         .attr("alignment-baseline", "middle");
+
+    // YouTube modal: thumbnail + link (opens on YouTube; embed often blocked)
+    const modal = document.getElementById("youtube-modal");
+    const modalTitle = modal.querySelector(".modal-title");
+    const thumbLink = document.getElementById("youtube-thumb-link");
+    const thumbImg = document.getElementById("youtube-thumb");
+    const closeBtn = modal.querySelector(".modal-close");
+    const overlay = modal.querySelector(".modal-overlay");
+
+    function openYouTubeModal(d) {
+        const videoId = d.videoId;
+        const watchUrl = videoId
+            ? "https://www.youtube.com/watch?v=" + videoId
+            : "https://www.youtube.com/results?search_query=" + encodeURIComponent("Nirvana " + d.song);
+        thumbLink.href = watchUrl;
+        if (videoId) {
+            thumbImg.src = "https://img.youtube.com/vi/" + videoId + "/hqdefault.jpg";
+            thumbImg.alt = "Play " + d.song + " on YouTube";
+            thumbImg.style.display = "";
+        } else {
+            thumbImg.style.display = "none";
+        }
+        modalTitle.textContent = d.song;
+        modal.classList.add("is-open");
+        modal.setAttribute("aria-hidden", "false");
+    }
+
+    function closeYouTubeModal() {
+        modal.classList.remove("is-open");
+        modal.setAttribute("aria-hidden", "true");
+    }
+
+    closeBtn.addEventListener("click", closeYouTubeModal);
+    overlay.addEventListener("click", closeYouTubeModal);
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal.classList.contains("is-open")) closeYouTubeModal();
+    });
+
+    // Open modal on bar or label click
+    bars.style("cursor", "pointer")
+        .on("click", function(event, d) {
+            event.stopPropagation();
+            openYouTubeModal(d);
+        });
+
+    labelGroups.on("click", function(event, d) {
+        event.stopPropagation();
+        openYouTubeModal(d);
+    });
 
     // HOVER INTERACTION
     // Add a text element for the tooltip in the center
