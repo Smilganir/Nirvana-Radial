@@ -104,16 +104,18 @@ svg {
 }
 
 .modal-play-btn {
+    position: absolute;
+    inset: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
     padding: 0.75rem 1rem;
-    background: #c4302b;
+    background: rgba(196, 48, 43, 0.9);
     color: #fff;
     font-size: 1rem;
     font-weight: 600;
 }
 .modal-thumb-wrap:hover .modal-play-btn {
-    background: #e04a44;
+    background: rgba(224, 74, 68, 0.95);
 }
